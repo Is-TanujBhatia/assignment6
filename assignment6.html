@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>GAME</title>
+    <link rel="stylesheet" href="assignment6.css">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link
+        href="https://fonts.googleapis.com/css2?family=Bruno+Ace+SC&family=Darumadrop+One&family=Roboto:wght@100&display=swap"
+        rel="stylesheet">
+</head>
+<body>
+    <h1>GUESS THE NUMBER GAME</h1>
+    <button onclick="game()">Start Game</button>
+    <p id="text"></p>
+    <script>
+        function game(){
+            input=prompt("Enter a number between 1 and 100");
+            let sum="";
+            if(input>=0 && input<=100)
+            {
+                let i,obj;
+                for(i=0,obj=[];i<5;i++)
+                {
+                    sum+="COMPUTER GUESSED "+Math.round(Math.random()*100) + "<br><br>";
+                    obj[i]=sum;
+                }
+                for(let j=0;j<5;j++)
+                {
+                    if(input==obj[j])
+                    {
+                        sum+="COMPUTER WINS";
+                        break;
+                    }
+                    else
+                    {
+                        sum+="YOU WON";
+                        break;
+                    }
+                }
+            }
+            else
+            {
+                sum="Invalid input";
+            }
+            document.getElementById("text").innerHTML=sum;
+        }
+    </script>
+</body>
+</html>
